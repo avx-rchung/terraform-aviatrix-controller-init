@@ -14,7 +14,11 @@ module "controller_init" {
   source  = "terraform-aviatrix-modules/controller-init/aviatrix"
   version = "v1.0.0"
 
-  
+  avx_controller_public_ip      = "1.2.3.4"
+  avx_controller_private_ip     = "10.1.1.123"
+  avx_controller_admin_email    = "admin@domain.com"
+  avx_controller_admin_password = "mysecurepassword"
+  aviatrix_customer_id          = "aviatrix-abu-123456"
 }
 ```
 
@@ -42,4 +46,7 @@ This module will return the following outputs:
 key | description
 :---|:---
 \<keyname> | \<description of object that will be returned in this output>
+
+
+
 
