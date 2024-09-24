@@ -45,7 +45,7 @@ This module will return the following outputs:
 
 key | description
 :---|:---
-\<keyname> | \<description of object that will be returned in this output>
+controller_setup_result | Response body of the controller initialization API call
 
 
 
