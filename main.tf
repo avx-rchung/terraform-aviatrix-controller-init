@@ -237,8 +237,8 @@ resource "terracurl_request" "verify_complete" {
     200,
   ]
 
-  max_retry      = 3
-  retry_interval = 3
+  max_retry      = 10
+  retry_interval = 10
 
   lifecycle {
     postcondition {
