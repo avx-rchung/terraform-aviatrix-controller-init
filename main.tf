@@ -110,7 +110,7 @@ resource "terracurl_request" "set_customer_id" {
   request_body = jsonencode({
     "action" : "setup_customer_id",
     "CID" : local.init_cid
-    "customer_id" : var.aviatrix_customer_id,
+    "customer_id" : var.customer_id,
   })
 
   headers = {
