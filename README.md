@@ -6,19 +6,19 @@ This module initializes a freshly deployed controller.
 ### Compatibility
 Module version | Terraform version
 :--- | :---
-v1.0.0 | >= 1.3
+v1.0.1 | >= 1.3
 
 ### Usage Example
 ```hcl
 module "controller_init" {
   source  = "terraform-aviatrix-modules/controller-init/aviatrix"
-  version = "v1.0.0"
+  version = "v1.0.1"
 
-  avx_controller_public_ip      = "1.2.3.4"
-  avx_controller_private_ip     = "10.1.1.123"
-  avx_controller_admin_email    = "admin@domain.com"
-  avx_controller_admin_password = "mysecurepassword"
-  aviatrix_customer_id          = "aviatrix-abu-123456"
+  controller_public_ip      = "1.2.3.4"
+  controller_private_ip     = "10.1.1.123"
+  controller_admin_email    = "admin@domain.com"
+  controller_admin_password = "mysecurepassword"
+  customer_id               = "aviatrix-abu-123456"
 }
 ```
 
@@ -27,11 +27,11 @@ The following variables are required:
 
 key | value
 :--- | :---
-avx_controller_public_ip | Public IP of the controller
-avx_controller_private_ip | Private IP of the controller
-avx_controller_admin_email | Email address for the admin
-avx_controller_admin_password | Desired password for the controller
-aviatrix_customer_id | Customer_id for the controller (License)
+controller_public_ip | Public IP of the controller
+controller_private_ip | Private IP of the controller
+controller_admin_email | Email address for the admin
+controller_admin_password | Desired password for the controller
+customer_id | Customer_id for the controller (License)
 
 The following variables are optional:
 

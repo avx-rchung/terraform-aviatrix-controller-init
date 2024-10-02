@@ -1,25 +1,25 @@
-variable "avx_controller_public_ip" {
+variable "controller_public_ip" {
   type        = string
   description = "aviatrix controller public ip address(required)"
 }
 
-variable "avx_controller_private_ip" {
+variable "controller_private_ip" {
   type        = string
   description = "aviatrix controller private ip address(required)"
 }
 
-variable "avx_controller_admin_email" {
+variable "controller_admin_email" {
   type        = string
   description = "aviatrix controller admin email address"
 }
 
-variable "avx_controller_admin_password" {
+variable "controller_admin_password" {
   type        = string
   sensitive   = true
   description = "aviatrix controller admin password"
 }
 
-variable "aviatrix_customer_id" {
+variable "customer_id" {
   type        = string
   description = "aviatrix customer license id"
 }

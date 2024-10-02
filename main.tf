@@ -1,13 +1,13 @@
 #First login, obtain CID.
 resource "terracurl_request" "first_controller_login" {
   name            = "controller_login"
-  url             = "https://${var.avx_controller_public_ip}/v2/api"
+  url             = "https://${var.controller_public_ip}/v2/api"
   method          = "POST"
   skip_tls_verify = true
   request_body = jsonencode({
     "action" : "login",
     "username" : "admin",
-    "password" : var.avx_controller_private_ip,
+    "password" : var.controller_private_ip,
   })
 
   headers = {
@@ -34,13 +34,13 @@ resource "terracurl_request" "first_controller_login" {
 #Set admin email address
 resource "terracurl_request" "set_admin_email" {
   name            = "set_admin_email"
-  url             = "https://${var.avx_controller_public_ip}/v2/api"
+  url             = "https://${var.controller_public_ip}/v2/api"
   method          = "POST"
   skip_tls_verify = true
   request_body = jsonencode({
     "action" : "add_admin_email_addr",
     "CID" : local.init_cid,
-    "admin_email" : var.avx_controller_admin_email,
+    "admin_email" : var.controller_admin_email,
   })
 
   headers = {
@@ -67,14 +67,14 @@ resource "terracurl_request" "set_admin_email" {
 #Set notification email
 resource "terracurl_request" "set_notification_email" {
   name            = "set_notification_email"
-  url             = "https://${var.avx_controller_public_ip}/v2/api"
+  url             = "https://${var.controller_public_ip}/v2/api"
   method          = "POST"
   skip_tls_verify = true
   request_body = jsonencode({
     "action" : "add_notif_email_addr",
     "CID" : local.init_cid
     "notif_email_args" : jsonencode({
-      "admin_alert" : { "address" : var.avx_controller_admin_email }
+      "admin_alert" : { "address" : var.controller_admin_email }
     })
   })
 
@@ -104,7 +104,7 @@ resource "terracurl_request" "set_notification_email" {
 #Set customer ID
 resource "terracurl_request" "set_customer_id" {
   name            = "set_customer_id"
-  url             = "https://${var.avx_controller_public_ip}/v2/api"
+  url             = "https://${var.controller_public_ip}/v2/api"
   method          = "POST"
   skip_tls_verify = true
   request_body = jsonencode({
@@ -139,7 +139,7 @@ resource "terracurl_request" "set_customer_id" {
 #Set admin password
 resource "terracurl_request" "set_admin_password" {
   name            = "set_admin_password"
-  url             = "https://${var.avx_controller_public_ip}/v2/api"
+  url             = "https://${var.controller_public_ip}/v2/api"
   method          = "POST"
   skip_tls_verify = true
   request_body = jsonencode({
@@ -147,8 +147,8 @@ resource "terracurl_request" "set_admin_password" {
     "CID" : local.init_cid
     "username" : "admin",
     "what" : "password",
-    "old_password" : var.avx_controller_private_ip,
-    "new_password" : var.avx_controller_admin_password,
+    "old_password" : var.controller_private_ip,
+    "new_password" : var.controller_admin_password,
   })
 
   headers = {
@@ -177,7 +177,7 @@ resource "terracurl_request" "set_admin_password" {
 #Initialize controller
 resource "terracurl_request" "controller_initial_setup" {
   name            = "controller_initial_setup"
-  url             = "https://${var.avx_controller_public_ip}/v2/api"
+  url             = "https://${var.controller_public_ip}/v2/api"
   method          = "POST"
   skip_tls_verify = true
   request_body = jsonencode({
@@ -220,13 +220,13 @@ resource "time_sleep" "wait_for_setup" {
 #Check everything is up and running
 resource "terracurl_request" "verify_complete" {
   name            = "verify_complete"
-  url             = "https://${var.avx_controller_public_ip}/v2/api"
+  url             = "https://${var.controller_public_ip}/v2/api"
   method          = "POST"
   skip_tls_verify = true
   request_body = jsonencode({
     "action" : "login",
     "username" : "admin",
-    "password" : var.avx_controller_admin_password,
+    "password" : var.controller_admin_password,
   })
 
   headers = {
