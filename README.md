@@ -1,7 +1,7 @@
 # terraform-aviatrix-controller-init
 
 ### Description
-This module initializes a freshly deployed controller.
+This module initializes a freshly deployed controller. It requires the usage of a g3 based controller image, in order for the API v2 operations to function properly.
 
 ### Compatibility
 Module version | Terraform version
