@@ -195,8 +195,7 @@ resource "terracurl_request" "controller_initial_setup" {
     200,
   ]
 
-  max_retry      = 120
-  retry_interval = 10
+  timeout = 300
 
   lifecycle {
     ignore_changes = all
